@@ -1,11 +1,15 @@
 import React from "react";
+import axios from 'axios'
+import { Route, withRouter, Link } from "react-router-dom";
+
+import startSurvey from './components/startSurvey.js'
+import Home from './components/homepage.js'
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      client: "",
-      survey: ""
+      stuff: ""
     };
   }
 
@@ -13,25 +17,27 @@ class App extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  componentDidMount() {
+    this.getStuff()
+  }
+
+  getStuff = () => {
+    axios
+      .get('http://home.mevise.com:3050')
+      .then(res => {
+        this.setState({ stuff: res.data })
+      })
+      .catch(err => { console.log(err) })
+  }
+
   render() {
     return (
-      <div className="App">
-        <h1>Surveys!</h1>
-        <form>
-          <input
-            type="text"
-            placeholder="Type Client Name"
-            onChange={this.handleChanges}
-          />
-          <input
-            type="text"
-            placeholder="Type Client Survey Name"
-            onChange={this.handleChanges}
-          />
-          <button type="submit">Submit</button>
-        </form>
-      </div>
-    );
+      <>
+        <Route path="/" exact component={Home} />
+        <Route path='/start-survey' exact component={startSurvey} />
+        {/* <Route path="/survey" render={props => <Survey {...props} />} /> */}
+      </>
+    )
   }
 }
 
