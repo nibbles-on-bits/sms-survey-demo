@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import Survey from './Survey'
+
 class startSurvey extends React.Component {
     constructor(props) {
         super();
@@ -47,6 +49,7 @@ class startSurvey extends React.Component {
                 <Link to='/'>
                     <button>Home</button>
                 </Link>
+                <Survey surveys={this.state.surveys} client={this.state.client} />
             </div>
         )
     }
