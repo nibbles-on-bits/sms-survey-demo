@@ -9,7 +9,8 @@ class Survey extends React.Component {
     }
 
     loadSurvey = () => {
-        if (this.props.client == "Max") {
+        console.log(this.props)
+        /*if (this.props.client == "Max") {
             filteredMax = this.props.surveys.filter(survey => {
                 survey.name == "Max's Survey"
             })
@@ -18,7 +19,7 @@ class Survey extends React.Component {
                     filteredChris = survey.name == "Chris's Survey"
                 })
             }
-        }
+        }*/
     }
 
     render() {
