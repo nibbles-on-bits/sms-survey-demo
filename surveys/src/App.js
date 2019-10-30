@@ -1,9 +1,10 @@
 import React from "react";
-import axios from 'axios'
+import axios from "axios";
 import { Route, withRouter, Link } from "react-router-dom";
 
-import startSurvey from './components/startSurvey.js'
-import Home from './components/homepage.js'
+import startSurvey from "./components/startSurvey.js";
+import Home from "./components/homepage.js";
+import Login from "./auth/Login.js";
 
 class App extends React.Component {
   constructor() {
@@ -18,26 +19,29 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    this.getStuff()
+    this.getStuff();
   }
 
   getStuff = () => {
     axios
-      .get('http://home.mevise.com:3050')
+      .get("http://home.mevise.com:3050")
       .then(res => {
-        this.setState({ stuff: res.data })
+        this.setState({ stuff: res.data });
       })
-      .catch(err => { console.log(err) })
-  }
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
   render() {
     return (
       <>
-        <Route path="/" exact component={Home} />
-        <Route path='/start-survey' exact component={startSurvey} />
+        <Route path="/" component={Login} />
+        <Route path="/home" exact component={Home} />
+        <Route path="/start-survey" exact component={startSurvey} />
         {/* <Route path="/survey" render={props => <Survey {...props} />} /> */}
       </>
-    )
+    );
   }
 }
 
