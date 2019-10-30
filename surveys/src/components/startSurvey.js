@@ -56,7 +56,7 @@ class startSurvey extends React.Component {
             <button type="submit">Submit</button>
           </Link>
         </form>
-        <Link to="/">
+        <Link to="/home">
           <button>Home</button>
         </Link>
         <Survey surveys={this.state.surveys} client={this.state.client} />

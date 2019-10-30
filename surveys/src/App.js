@@ -5,6 +5,7 @@ import { Route, withRouter, Link } from "react-router-dom";
 import startSurvey from "./components/startSurvey.js";
 import Home from "./components/homepage.js";
 import Login from "./auth/Login.js";
+import TestSurveys from "./components/TestSurveys";
 
 class App extends React.Component {
   constructor() {
@@ -36,9 +37,10 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <Route path="/" component={Login} />
-        <Route path="/home" exact component={Home} />
-        <Route path="/start-survey" exact component={startSurvey} />
+        <Route path="/" exact component={Login} />
+        <Route path="/home" component={Home} />
+        <Route path="/start-survey" component={startSurvey} />
+        <Route path="/test-surveys" component={TestSurveys} />
         {/* <Route path="/survey" render={props => <Survey {...props} />} /> */}
       </>
     );
