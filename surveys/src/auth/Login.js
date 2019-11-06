@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { Button } from "reactstrap";
 
 class Login extends Component {
   state = {
@@ -40,7 +41,6 @@ class Login extends Component {
             placeholder="Username"
             type="text"
           ></input>
-
           <input
             name="password"
             value={this.state.password}
@@ -48,7 +48,9 @@ class Login extends Component {
             placeholder="password"
             type="text"
           ></input>
-          <button type="submit">Submit</button>
+          <Button color="primary" type="submit">
+            Submit
+          </Button>
         </form>
       </div>
     );
