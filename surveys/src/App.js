@@ -25,7 +25,8 @@ class App extends React.Component {
 
   getStuff = () => {
     axios
-      .get("http://home.mevise.com:3050")
+      //.get("http://home.mevise.com:3050")
+      .get("http://localhost:8080/survey")
       .then(res => {
         this.setState({ stuff: res.data });
       })
@@ -46,5 +47,5 @@ class App extends React.Component {
     );
   }
 }
-
+// hello
 export default App;
