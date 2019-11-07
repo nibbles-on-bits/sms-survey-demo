@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import { Button } from "reactstrap";
 
 function Home() {
     return (
@@ -7,7 +8,7 @@ function Home() {
             <h1>Welcome to You Got Surveyed!</h1>
             <h2>Click here to get started:</h2>
             <Link to='/start-survey'>
-                <button>Start Survey!</button>
+                <Button>Start Survey!</Button>
             </Link>
         </>
     )

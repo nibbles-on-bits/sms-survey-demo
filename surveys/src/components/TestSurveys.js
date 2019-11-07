@@ -10,7 +10,8 @@ export default function TestSurvey() {
   useEffect(() => {
     axios
       //.get("http://0.tcp.ngrok.io:11626/survey")
-      .get("http://localhost:8080/survey")
+
+      .get("http://216.194.120.70:18080/survey")
       .then(res => console.log(res))
       .catch(err => {
         console.log(err);

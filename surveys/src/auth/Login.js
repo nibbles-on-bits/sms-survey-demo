@@ -33,7 +33,7 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={""}>
           <input
             name="username"
             value={this.state.username}
@@ -48,9 +48,11 @@ class Login extends Component {
             placeholder="password"
             type="text"
           ></input>
-          <Button color="primary" type="submit">
-            Submit
+          <Link to={'home'}>
+            <Button color="primary" type="submit">
+              Submit
           </Button>
+          </Link>
         </form>
       </div>
     );

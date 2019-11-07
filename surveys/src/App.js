@@ -1,11 +1,24 @@
 import React from "react";
 import axios from "axios";
 import { Route, withRouter, Link } from "react-router-dom";
+import Styled from 'styled-components'
+
 
 import startSurvey from "./components/startSurvey.js";
-import Home from "./components/homepage.js";
+import Homepage from "./components/Homepage.js";
 import Login from "./auth/Login.js";
 import TestSurveys from "./components/TestSurveys";
+import NavBar from './components/NavBar.js'
+const DesktopContainer = Styled.div`
+  width: 1000px;
+  margin: 0 auto;
+`
+
+const Containter = Styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+`
 
 class App extends React.Component {
   constructor() {
@@ -26,7 +39,7 @@ class App extends React.Component {
   getStuff = () => {
     axios
       //.get("http://home.mevise.com:3050")
-      .get("http://localhost:8080/survey")
+      .get("http://216.194.120.70:18080/survey")
       .then(res => {
         this.setState({ stuff: res.data });
       })
@@ -37,15 +50,20 @@ class App extends React.Component {
 
   render() {
     return (
-      <>
-        <Route path="/" exact component={Login} />
-        <Route path="/home" component={Home} />
-        <Route path="/start-survey" component={startSurvey} />
-        <Route path="/test-surveys" component={TestSurveys} />
-        {/* <Route path="/survey" render={props => <Survey {...props} />} /> */}
-      </>
+
+      <DesktopContainer>
+        <Containter>
+          <NavBar />
+          <Route path="/" exact component={Login} />
+          <Route path="/home" component={Homepage} />
+          <Route path="/start-survey" component={startSurvey} />
+          <Route path="/survey" component={TestSurveys} />
+          {/* <Route path="/survey" render={props => <Survey {...props} />} /> */}
+        </Containter>
+      </DesktopContainer>
+
     );
   }
 }
-// hello
+
 export default App;
